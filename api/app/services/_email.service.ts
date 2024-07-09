@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 import config from '@/app/config/config';
-import { logger } from '@/logger';
+import logger from '@/logger/_logger';
 import { Message } from '@/@types/_email.interfaces';
 
 export const transport = nodemailer.createTransport(config.email.smtp);

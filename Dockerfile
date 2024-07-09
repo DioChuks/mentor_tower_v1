@@ -10,6 +10,8 @@ COPY api/ api/
 
 USER node
 
+CMD ["npm", "build"]
+
 CMD [ "npm", "start" ]
 
 # ENV Variables

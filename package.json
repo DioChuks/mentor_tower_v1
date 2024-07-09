@@ -4,7 +4,7 @@
   "description": "Backend services for Mentor Tower",
   "main": "./api",
   "scripts": {
-    "dev": "npx ts-node ./src/application.ts",
+    "dev": "npx ts-node ./api/index.ts",
     "start": "node ./dist/index.js",
     "watch": "ts-node-dev --files --respawn --inspect -r tsconfig-paths/register ./api",
     "build": "rimraf dist && tsc",

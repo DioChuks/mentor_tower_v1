@@ -12,7 +12,7 @@ RUN chown -R node:node /home/node/app/package*.json
 USER node
 
 # Install dependencies
-RUN npm install --only=prod
+RUN npm install
 
 # Copy application files
 COPY --chown=node:node . .

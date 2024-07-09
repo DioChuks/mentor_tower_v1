@@ -19,7 +19,12 @@ const errorHandler = morgan(errorResponseFormat, {
   stream: { write: (message: string) => logger.error(message.trim()) },
 });
 
-export default {
+const _morgan = {
+  getIpFormat,
+  successResponseFormat,
+  errorResponseFormat,
   successHandler,
-  errorHandler,
-};
+  errorHandler
+}
+
+export default _morgan

@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { validate } from '@/app/validations/validate';
+import validate  from '@/app/validations/validate/_validate.middleware';
 import * as authValidation from "@/app/validations/auth";
 import IsAuth from '@/app/middleware/auth';
 

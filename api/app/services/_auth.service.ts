@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
 import Token from '@/app/models/token';
-import { ApiError } from '@/errors';
+import ApiError from '@/errors/_ApiError';
 import tokenTypes from '@/@types/_token.types';
 import { getUserByEmail, getUserById, updateUserById } from '@/app/services/_user.service';
 import { IUserDoc, IUserWithTokens } from '@/@types/_user.interfaces';

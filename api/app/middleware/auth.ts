@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
-import ApiError from '../../errors/_ApiError';
+import ApiError from '@/errors/_ApiError';
 import { roleRights } from '@/@types/_role';
 import { IUserDoc } from '@/@types/_user.interfaces';
 import { jwtError } from '@/app/utils/_jwt';

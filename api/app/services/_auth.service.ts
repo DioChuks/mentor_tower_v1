@@ -1,11 +1,11 @@
 import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
-import Token from 'app/models/token';
-import ApiError from 'errors/_ApiError';
-import tokenTypes from 'contracts/_token.types';
-import { getUserByEmail, getUserById, updateUserById } from 'app/services/_user.service';
-import { IUserDoc, IUserWithTokens } from 'contracts/_user.interfaces';
-import { generateAuthTokens, verifyToken } from 'app/services/_token.service';
+import Token from '../models/token';
+import ApiError from '../../errors/_ApiError';
+import tokenTypes from '../../contracts/_token.types';
+import { getUserByEmail, getUserById, updateUserById } from './_user.service';
+import { IUserDoc, IUserWithTokens } from '../../contracts/_user.interfaces';
+import { generateAuthTokens, verifyToken } from './_token.service';
 
 export const loginUserWithEmailAndPassword = async (email: string, password: string): Promise<IUserDoc> => {
   const user = await getUserByEmail(email);

@@ -1,6 +1,6 @@
 import Joi from 'joi';
 import { password } from './validate/_custom.validation';
-import { NewRegisteredUser } from 'contracts/_user.interfaces';
+import { NewRegisteredUser } from '../../contracts/_user.interfaces';
 
 const registerBody: Record<keyof NewRegisteredUser, any> = {
   email: Joi.string().required().email(),

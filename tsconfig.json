@@ -1,20 +1,13 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
+    "target": "es2016",
+    "module": "commonjs",
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
     "moduleDetection": "force",
-    "baseUrl": "./api",
-    "rootDir": "./api",
-    "outDir": "./dist",
-    "lib": ["ES2020"],
-    "types": ["node"],
-    "typeRoots": ["./node_modules/@types"]
-  },
-  "include": ["api/**/*"],
-  "exclude": ["node_modules"]
+  }
 }

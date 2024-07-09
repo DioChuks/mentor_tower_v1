@@ -1,8 +1,8 @@
 import { StatusCodes } from 'http-status-codes';
 import { Request, Response } from 'express';
 import catchAsync from '../utils/_catchAsync';
-import { userService, tokenService, emailService } from 'app/services';
-import * as authService from 'app/services/_auth.service';
+import { userService, tokenService, emailService } from '../services';
+import * as authService from '../services/_auth.service';
 
 export const register = catchAsync(async (req: Request, res: Response) => {
   const user = await userService.registerUser(req.body);

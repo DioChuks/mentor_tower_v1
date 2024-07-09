@@ -20,7 +20,7 @@
     },
     "baseUrl": "./api",
     "rootDir": "./api",
-    "outDir": "dist",
+    "outDir": "./dist",
     "lib": ["ESNext"],
     "types": ["node"],
     "typeRoots": ["./node_modules/@types"]

@@ -10,6 +10,8 @@ COPY api/ api/
 
 USER node
 
+RUN npm run build
+
 CMD [ "npm", "start" ]
 
 # ENV Variables

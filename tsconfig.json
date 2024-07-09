@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "CommonJS",
+    "target": "es6",
+    "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "emitDecoratorMetadata": true,
@@ -11,7 +11,7 @@
     "skipLibCheck": true,
     "isolatedModules": true,
     "allowSyntheticDefaultImports": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "removeComments": true,
     "noImplicitAny": true,
@@ -20,7 +20,7 @@
     },
     "baseUrl": "./api",
     "rootDir": "./api",
-    "outDir": "./dist",
+    "outDir": "dist",
     "lib": ["ESNext"],
     "types": ["node"],
     "typeRoots": ["./node_modules/@types"]

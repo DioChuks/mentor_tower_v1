@@ -6,8 +6,10 @@
   "scripts": {
     "start": "ts-node --files -r tsconfig-paths/register ./api",
     "watch": "ts-node-dev --files --respawn --inspect -r tsconfig-paths/register ./api",
+    "build": "rimraf dist && tsc",
     "cluster": "pm2 start api/index.ts -i max",
     "test": "jest --forceExit --detectOpenHandles",
+    "add-build": "git add dist",
     "prettier": "prettier \"**/*.+(js|jsx|json|css|md)\"",
     "prettier:write": "prettier --write \"**/*.+(js|jsx|json|css|md)\""
   },
@@ -74,6 +76,7 @@
     "jest": "^29.7.0",
     "mongodb-memory-server": "^9.3.0",
     "prettier": "^3.3.2",
+    "rimraf": "^6.0.0",
     "supertest": "^6.3.4",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.2",

@@ -1,30 +1,44 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "CommonJS",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "strictPropertyInitialization": false,
-    "strict": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "removeComments": true,
-    "noImplicitAny": true,
+    "target": "esnext",                     // Use the latest ECMAScript standard for transpilation.
+    "module": "commonjs",                   // CommonJS module system for Node.js.
+    "esModuleInterop": true,                // Enable interoperability between CommonJS and ES modules.
+    "forceConsistentCasingInFileNames": true, // Ensure consistent file naming.
+    "emitDecoratorMetadata": true,          // Emit metadata for decorators.
+    "experimentalDecorators": true,         // Enable experimental support for decorators.
+    "strictPropertyInitialization": false,  // Disable strict property initialization checks.
+    "strict": true,                         // Enable all strict type-checking options.
+    "skipLibCheck": true,                   // Skip type checking of declaration files.
+    "isolatedModules": true,                // Treat each file as a separate module.
+    "allowSyntheticDefaultImports": true,   // Allow default imports from modules with no default export.
+    "moduleResolution": "node",             // Use Node.js-style module resolution.
+    "resolveJsonModule": true,              // Allow importing JSON modules.
+    "removeComments": true,                 // Remove comments in the output.
+    "noImplicitAny": true,                  // Raise error on expressions and declarations with an implied 'any' type.
     "paths": {
       "@/*": ["*"]
     },
-    "baseUrl": "./api",
-    "rootDir": "./api",
-    "outDir": "./dist",
-    "lib": ["ESNext"],
-    "types": ["node"],
-    "typeRoots": ["./node_modules/@types"]
+    "baseUrl": "./api",                     // Base directory to resolve non-relative module names.
+    "rootDir": "./api",                     // Root directory of input files.
+    "outDir": "./dist",                     // Output directory for compiled files.
+    "lib": ["ESNext", "DOM"],               // Include the latest ECMAScript standard library and DOM library.
+    "types": ["node"],                      // Include type definitions for Node.js.
+    "typeRoots": ["./node_modules/@types"], // Specify type definition directories.
+    "checkJs": false,                        // Enable type-checking in JavaScript files.
+    "strictBindCallApply": true,            // Ensure `bind`, `call`, and `apply` methods are used correctly.
+    "strictNullChecks": true,               // Ensure that `null` and `undefined` are properly handled.
+    "noImplicitThis": true,                 // Ensure `this` is correctly typed.
+    "noUnusedLocals": true,                 // Report errors on unused local variables.
+    "noUnusedParameters": true,             // Report errors on unused parameters.
+    "noFallthroughCasesInSwitch": true,     // Report errors for fallthrough cases in switch statements.
+    "noImplicitReturns": true,              // Ensure all code paths in a function return a value.
+    "noUncheckedIndexedAccess": true,       // Add `undefined` to a type when accessed using an index.
+    "downlevelIteration": true,             // Provide full support for iterables in `for-of`, spread, and destructuring when targeting `ES5` or `ES3`.
+    "allowUnreachableCode": false,          // Report errors on unreachable code.
+    "alwaysStrict": true,                   // Ensure `use strict` is always emitted.
+    "declaration": true,                    // Generate corresponding `.d.ts` files.
+    "sourceMap": true                       // Generate source map files.
   },
-  "include": ["api/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["api/**/*"],                  // Files to include in the compilation.
+  "exclude": ["node_modules"]               // Files to exclude from the compilation.
 }

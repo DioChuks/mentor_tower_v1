@@ -55,12 +55,6 @@ const UserSchema = new Schema<IUserDoc, IUserModel>({
 
 UserSchema.plugin(toJSON);
 
-/**
- * Check if email is taken
- * @param {string} email - The user's email
- * @param {ObjectId} [excludeUserId] - The id of the user to be excluded
- * @returns {Promise<boolean>}
- */
 UserSchema.static('isEmailTaken', async function (email: string, excludeUserId: ObjectId): Promise<boolean> {
     const user = await this.findOne({ email, _id: { $ne: excludeUserId } });
     return !!user;

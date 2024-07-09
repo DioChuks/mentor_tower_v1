@@ -10,14 +10,6 @@ import { AccessAndRefreshTokens, ITokenDoc } from '@/@types/_token.interfaces';
 import { IUserDoc } from '@/@types/_user.interfaces';
 import { userService } from '.';
 
-/**
- * Generate token
- * @param {mongoose.Types.ObjectId} userId
- * @param {Moment} expires
- * @param {string} type
- * @param {string} [secret]
- * @returns {string}
- */
 export const generateToken = (
   userId: mongoose.Types.ObjectId,
   expires: Moment,
@@ -33,15 +25,6 @@ export const generateToken = (
   return jwt.sign(payload, secret);
 };
 
-/**
- * Save a token
- * @param {string} token
- * @param {mongoose.Types.ObjectId} userId
- * @param {Moment} expires
- * @param {string} type
- * @param {boolean} [blacklisted]
- * @returns {Promise<ITokenDoc>}
- */
 export const saveToken = async (
   token: string,
   userId: mongoose.Types.ObjectId,
@@ -59,12 +42,6 @@ export const saveToken = async (
   return tokenDoc;
 };
 
-/**
- * Verify token and return token doc (or throw an error if it is not valid)
- * @param {string} token
- * @param {string} type
- * @returns {Promise<ITokenDoc>}
- */
 export const verifyToken = async (token: string, type: string): Promise<ITokenDoc> => {
   const payload = jwt.verify(token, config.jwt.secret);
   if (typeof payload.sub !== 'string') {
@@ -82,11 +59,6 @@ export const verifyToken = async (token: string, type: string): Promise<ITokenDo
   return tokenDoc;
 };
 
-/**
- * Generate auth tokens
- * @param {IUserDoc} user
- * @returns {Promise<AccessAndRefreshTokens>}
- */
 export const generateAuthTokens = async (user: IUserDoc): Promise<AccessAndRefreshTokens> => {
   const accessTokenExpires = moment().add(config.jwt.accessExpirationMinutes, 'minutes');
   const accessToken = generateToken(user.id, accessTokenExpires, tokenTypes.ACCESS);
@@ -107,11 +79,6 @@ export const generateAuthTokens = async (user: IUserDoc): Promise<AccessAndRefre
   };
 };
 
-/**
- * Generate reset password token
- * @param {string} email
- * @returns {Promise<string>}
- */
 export const generateResetPasswordToken = async (email: string): Promise<string> => {
   const user = await userService.getUserByEmail(email);
   if (!user) {
@@ -123,11 +90,6 @@ export const generateResetPasswordToken = async (email: string): Promise<string>
   return resetPasswordToken;
 };
 
-/**
- * Generate verify email token
- * @param {IUserDoc} user
- * @returns {Promise<string>}
- */
 export const generateVerifyEmailToken = async (user: IUserDoc): Promise<string> => {
   const expires = moment().add(config.jwt.verifyEmailExpirationMinutes, 'minutes');
   const verifyEmailToken = generateToken(user.id, expires, tokenTypes.VERIFY_EMAIL);

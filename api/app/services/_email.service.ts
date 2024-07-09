@@ -12,14 +12,6 @@ if (config.env !== 'test') {
     .catch(() => logger.warn('Unable to connect to email server. Make sure you have configured the SMTP options in .env'));
 }
 
-/**
- * Send an email
- * @param {string} to
- * @param {string} subject
- * @param {string} text
- * @param {string} html
- * @returns {Promise<void>}
- */
 export const sendEmail = async (to: string, subject: string, text: string, html: string): Promise<void> => {
   const msg: Message = {
     from: config.email.from,
@@ -31,12 +23,6 @@ export const sendEmail = async (to: string, subject: string, text: string, html:
   await transport.sendMail(msg);
 };
 
-/**
- * Send reset password email
- * @param {string} to
- * @param {string} token
- * @returns {Promise<void>}
- */
 export const sendResetPasswordEmail = async (to: string, token: string): Promise<void> => {
   const subject = 'Reset password';
   // replace this url with the link to the reset password page of your front-end app
@@ -52,13 +38,6 @@ export const sendResetPasswordEmail = async (to: string, token: string): Promise
   await sendEmail(to, subject, text, html);
 };
 
-/**
- * Send verification email
- * @param {string} to
- * @param {string} token
- * @param {string} name
- * @returns {Promise<void>}
- */
 export const sendVerificationEmail = async (to: string, token: string, name: string): Promise<void> => {
   const subject = 'Email Verification';
   // replace this url with the link to the email verification page of your front-end app
@@ -72,13 +51,6 @@ export const sendVerificationEmail = async (to: string, token: string, name: str
   await sendEmail(to, subject, text, html);
 };
 
-/**
- * Send email verification after registration
- * @param {string} to
- * @param {string} token
- * @param {string} name
- * @returns {Promise<void>}
- */
 export const sendSuccessfulRegistration = async (to: string, token: string, name: string): Promise<void> => {
   const subject = 'Email Verification';
   // replace this url with the link to the email verification page of your front-end app
@@ -98,12 +70,6 @@ export const sendSuccessfulRegistration = async (to: string, token: string, name
   await sendEmail(to, subject, text, html);
 };
 
-/**
- * Send email verification after registration
- * @param {string} to
- * @param {string} name
- * @returns {Promise<void>}
- */
 export const sendAccountCreated = async (to: string, name: string): Promise<void> => {
   const subject = 'Account Created Successfully';
   // replace this url with the link to the email verification page of your front-end app

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import app from './app';
+import app from './_app';
 import config from './app/config/config';
 import { logger } from './logger';
 

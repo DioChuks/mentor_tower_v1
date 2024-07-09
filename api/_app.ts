@@ -7,11 +7,11 @@ import passport from "passport";
 import 'dotenv/config'
 import fs from "fs";
 import path from "path";
-import router from "./routes/auth.routes";
+import router from "./routes/_auth.routes";
 import config from "./app/config/config";
 import { morgan } from "./logger";
 import jwtStrategy from "./app/middleware/passport";
-import authLimiter from "./app/utils/rateLimiter";
+import authLimiter from "./app/utils/_rateLimiter";
 import { ApiError, errorConverter, errorHandler } from "./errors";
 // import methodNotAllowed from "./middleware/methodNotAllowed";
 // import allowedMethods from "./config/allowedMethod";

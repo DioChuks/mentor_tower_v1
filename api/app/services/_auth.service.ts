@@ -2,10 +2,10 @@ import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
 import Token from '@/app/models/token';
 import { ApiError } from '@/errors';
-import tokenTypes from '@/@types/token.types';
-import { getUserByEmail, getUserById, updateUserById } from '@/app/services/user.service';
-import { IUserDoc, IUserWithTokens } from '@/@types/user.interfaces';
-import { generateAuthTokens, verifyToken } from '@/app/services/token.service';
+import tokenTypes from '@/@types/_token.types';
+import { getUserByEmail, getUserById, updateUserById } from '@/app/services/_user.service';
+import { IUserDoc, IUserWithTokens } from '@/@types/_user.interfaces';
+import { generateAuthTokens, verifyToken } from '@/app/services/_token.service';
 
 /**
  * Login with username and password

@@ -1,9 +1,9 @@
 import { Schema, model, ObjectId } from 'mongoose'
 import validator from 'validator';
-import {UserRole} from "@/@types/role";
-import toJSON from '@/app/config/toJson';
+import {UserRole} from "@/@types/_role";
+import toJSON from '@/app/config/_toJson';
 import { compareSync, hash } from 'bcrypt'
-import { IUserDoc, IUserModel } from "@/@types/user.interfaces";
+import { IUserDoc, IUserModel } from "@/@types/_user.interfaces";
 
 const UserSchema = new Schema<IUserDoc, IUserModel>({
     name: {

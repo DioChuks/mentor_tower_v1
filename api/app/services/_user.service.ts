@@ -1,9 +1,9 @@
 import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
 import User from '@/app/models/user';
-import ApiError from '@/errors/ApiError';
-import { IOptions, QueryResult } from '@/@types/paginate';
-import { NewCreatedUser, UpdateUserBody, IUserDoc, NewRegisteredUser } from '@/@types/user.interfaces';
+import ApiError from '@/errors/_ApiError';
+import { IOptions, QueryResult } from '@/@types/_paginate';
+import { NewCreatedUser, UpdateUserBody, IUserDoc, NewRegisteredUser } from '@/@types/_user.interfaces';
 
 /**
  * Create a user

@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import passport from 'passport';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
-import ApiError from '../../errors/ApiError';
-import { roleRights } from '@/@types/role';
-import { IUserDoc } from '@/@types/user.interfaces';
-import { jwtError } from '@/app/utils/jwt';
-import { getAccessTokenFromHeaders } from '@/app/utils/headers';
+import ApiError from '../../errors/_ApiError';
+import { roleRights } from '@/@types/_role';
+import { IUserDoc } from '@/@types/_user.interfaces';
+import { jwtError } from '@/app/utils/_jwt';
+import { getAccessTokenFromHeaders } from '@/app/utils/_headers';
 
 const IsAuth = (...requiredRights: string[]) =>
   async (req: Request, res: Response, next: NextFunction) => {

@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import mongoose from 'mongoose';
 import { StatusCodes } from 'http-status-codes';
-import config from '@/config/config';
+import config from '@/app/config/config';
 import { logger } from '@/logger';
 import ApiError from './ApiError';
 

@@ -1,11 +1,11 @@
 import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
-import Token from '@/models/token';
+import Token from '@/app/models/token';
 import { ApiError } from '@/errors';
 import tokenTypes from '@/@types/token.types';
-import { getUserByEmail, getUserById, updateUserById } from '@/services/user.service';
+import { getUserByEmail, getUserById, updateUserById } from '@/app/services/user.service';
 import { IUserDoc, IUserWithTokens } from '@/@types/user.interfaces';
-import { generateAuthTokens, verifyToken } from '@/services/token.service';
+import { generateAuthTokens, verifyToken } from '@/app/services/token.service';
 
 /**
  * Login with username and password

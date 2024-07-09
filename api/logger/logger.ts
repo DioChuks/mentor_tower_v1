@@ -1,5 +1,5 @@
 import winston from 'winston';
-import config from '../config/config';
+import config from '../app/config/config';
 
 interface LoggingInfo {
   level: string;

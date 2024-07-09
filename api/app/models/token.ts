@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import tokenTypes from '@/@types/token.types';
-import toJSON from '@/config/toJson';
+import toJSON from '@/app/config/toJson';
 import { ITokenDoc, ITokenModel } from '@/@types/token.interfaces';
 
 const tokenSchema = new mongoose.Schema<ITokenDoc, ITokenModel>(

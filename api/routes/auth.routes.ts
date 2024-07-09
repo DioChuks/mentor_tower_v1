@@ -1,9 +1,9 @@
 import express, { Router } from 'express';
-import { validate } from '@/validations/validate';
-import * as authValidation from "@/validations/auth";
-import IsAuth from '@/middleware/auth';
+import { validate } from '@/app/validations/validate';
+import * as authValidation from "@/app/validations/auth";
+import IsAuth from '@/app/middleware/auth';
 
-import * as authController from "@/controllers/auth.controller"
+import * as authController from "@/app/controllers/auth.controller"
 
 const router: Router = express.Router();
 

@@ -1,7 +1,7 @@
 import { Schema, model, ObjectId } from 'mongoose'
 import validator from 'validator';
 import {UserRole} from "@/@types/role";
-import toJSON from '@/config/toJson';
+import toJSON from '@/app/config/toJson';
 import { compareSync, hash } from 'bcrypt'
 import { IUserDoc, IUserModel } from "@/@types/user.interfaces";
 

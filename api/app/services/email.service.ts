@@ -1,5 +1,5 @@
 import nodemailer from 'nodemailer';
-import config from '@/config/config';
+import config from '@/app/config/config';
 import { logger } from '@/logger';
 import { Message } from '@/@types/email.interfaces';
 

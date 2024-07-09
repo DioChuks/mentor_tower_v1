@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
-import User from '@/models/user';
+import User from '@/app/models/user';
 import ApiError from '@/errors/ApiError';
 import { IOptions, QueryResult } from '@/@types/paginate';
 import { NewCreatedUser, UpdateUserBody, IUserDoc, NewRegisteredUser } from '@/@types/user.interfaces';

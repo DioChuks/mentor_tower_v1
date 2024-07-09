@@ -10,9 +10,7 @@ COPY api/ api/
 
 USER node
 
-CMD ["npm", "build"]
-
-CMD [ "npm", "start" ]
+CMD ["sh", "-c", "npm run build && npm start"]
 
 # ENV Variables
 ARG MONGODB_URL

@@ -2,12 +2,12 @@ import jwt from 'jsonwebtoken';
 import moment, { Moment } from 'moment';
 import mongoose from 'mongoose';
 import { StatusCodes } from 'http-status-codes';
-import config from '@/app/config/config';
-import Token from '@/app/models/token';
-import ApiError from '../../errors/_ApiError';
-import tokenTypes from '@/@types/_token.types';
-import { AccessAndRefreshTokens, ITokenDoc } from '@/@types/_token.interfaces';
-import { IUserDoc } from '@/@types/_user.interfaces';
+import config from 'app/config/config';
+import Token from 'app/models/token';
+import ApiError from 'errors/_ApiError';
+import tokenTypes from 'contracts/_token.types';
+import { AccessAndRefreshTokens, ITokenDoc } from 'contracts/_token.interfaces';
+import { IUserDoc } from 'contracts/_user.interfaces';
 import { userService } from '.';
 
 export const generateToken = (

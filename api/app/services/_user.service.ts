@@ -1,9 +1,9 @@
 import { StatusCodes } from 'http-status-codes';
 import mongoose from 'mongoose';
-import User from '@/app/models/user';
-import ApiError from '@/errors/_ApiError';
-import { IOptions, QueryResult } from '@/@types/_paginate';
-import { NewCreatedUser, UpdateUserBody, IUserDoc, NewRegisteredUser } from '@/@types/_user.interfaces';
+import User from 'app/models/user';
+import ApiError from 'errors/_ApiError';
+import { IOptions, QueryResult } from 'contracts/_paginate';
+import { NewCreatedUser, UpdateUserBody, IUserDoc, NewRegisteredUser } from 'contracts/_user.interfaces';
 
 export const createUser = async (userBody: NewCreatedUser): Promise<IUserDoc> => {
   if (await User.isEmailTaken(userBody.email)) {

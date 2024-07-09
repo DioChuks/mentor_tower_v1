@@ -1,30 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2020",
     "module": "CommonJS",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "strictPropertyInitialization": false,
     "strict": true,
-    "skipLibCheck": true,
-    "isolatedModules": true,
-    "allowSyntheticDefaultImports": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "removeComments": true,
     "noImplicitAny": true,
-    "paths": {
-      "@/*": ["./*"]
-    },
+    "skipLibCheck": true,
+    "moduleDetection": "force",
     "baseUrl": "./api",
     "rootDir": "./api",
     "outDir": "./dist",
-    "lib": ["ESNext"],
+    "lib": ["ES2020"],
     "types": ["node"],
-    "typeRoots": ["./node_modules/@types"],
-    "checkJs": true
+    "typeRoots": ["./node_modules/@types"]
   },
   "include": ["api/**/*"],
   "exclude": ["node_modules"]

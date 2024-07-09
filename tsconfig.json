@@ -21,10 +21,11 @@
     "baseUrl": "./api",                     // Base directory to resolve non-relative module names.
     "rootDir": "./api",                     // Root directory of input files.
     "outDir": "./dist",                     // Output directory for compiled files.
-    "lib": ["ESNext", "DOM"],               // Include the latest ECMAScript standard library and DOM library.
+    "lib": ["esnext", "dom"],               // Include the latest ECMAScript standard library and DOM library.
     "types": ["node"],                      // Include type definitions for Node.js.
     "typeRoots": ["./node_modules/@types"], // Specify type definition directories.
-    "checkJs": false,                        // Enable type-checking in JavaScript files.
+    "checkJs": true,                        // Enable type-checking in JavaScript files.
+    "allowJs": true,
     "strictBindCallApply": true,            // Ensure `bind`, `call`, and `apply` methods are used correctly.
     "strictNullChecks": true,               // Ensure that `null` and `undefined` are properly handled.
     "noImplicitThis": true,                 // Ensure `this` is correctly typed.

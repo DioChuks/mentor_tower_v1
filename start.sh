@@ -4,4 +4,5 @@
 npm run build
 
 # Start the application
-npm start
+
+node -r tsconfig-paths/register dist/index.js

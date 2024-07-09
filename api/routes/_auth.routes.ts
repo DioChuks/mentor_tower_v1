@@ -1,7 +1,7 @@
 import express, { Router } from 'express';
-import validate  from '@/app/validations/validate/_validate.middleware';
+import validate from "@/app/validations/validate/_validate.middleware";
 import * as authValidation from "@/app/validations/auth";
-import IsAuth from '@/app/middleware/auth';
+import IsAuth from "@/app/middleware/auth";
 
 import * as authController from "@/app/controllers/_auth.controller"
 

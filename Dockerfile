@@ -12,6 +12,12 @@ COPY --chown=node:node . .
 
 RUN npm install
 
+# Copy the start script
+COPY start.sh .
+
+# Make the start script executable
+RUN chmod +x start.sh
+
 
 # ENV Variables
 ARG MONGODB_URL
@@ -50,8 +56,4 @@ ENV SMTP_TPL_PATH=templates
 
 EXPOSE 8000
 
-# Copy the start script
-COPY start.sh .
-
-# Make the start script executable
-RUN chmod +x start.sh
+CMD [ "start.sh" ]

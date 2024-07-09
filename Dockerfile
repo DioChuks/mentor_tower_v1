@@ -4,8 +4,9 @@ FROM node:latest
 RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
 WORKDIR /home/node/app
 
-# Copy package.json and package-lock.json
+# Copy package.json and package-lock.json, then change ownership
 COPY package*.json ./
+RUN chown -R node:node /home/node/app/package*.json
 
 # Switch to the node user
 USER node

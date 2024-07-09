@@ -4,7 +4,7 @@
   "description": "Backend services for Mentor Tower",
   "main": "./api",
   "scripts": {
-    "start": "ts-node --files -r tsconfig-paths/register ./api",
+    "start": "node ./dist/index.js",
     "watch": "ts-node-dev --files --respawn --inspect -r tsconfig-paths/register ./api",
     "build": "rimraf dist && tsc",
     "cluster": "pm2 start api/index.ts -i max",

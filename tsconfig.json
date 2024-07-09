@@ -9,5 +9,6 @@
     "noImplicitAny": true,
     "skipLibCheck": true,
     "moduleDetection": "force",
-  }
+  },
+  "include": ["api/**/*"]
 }

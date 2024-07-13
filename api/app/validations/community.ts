@@ -4,7 +4,7 @@ import { NewCreatedCommunity } from '../../contracts/_community.interfaces';
 
 
 const communityBody: Record<keyof NewCreatedCommunity, any> = {
-  tier: Joi.string().required().email(),
+  tier: Joi.string().required(),
   post_content: Joi.string().required().custom(postSize),
   name: Joi.string().required(),
 };

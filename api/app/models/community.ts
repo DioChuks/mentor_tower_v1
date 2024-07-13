@@ -8,11 +8,11 @@ const CommunitySchema = new Schema<ICommunity>({
     },
     tier: {
         type: String,
-        default: false,
+        required: false,
     },
     post_content: {
         type: String,
-        required: false
+        required: true
     },
     likes: {
         type: Number,

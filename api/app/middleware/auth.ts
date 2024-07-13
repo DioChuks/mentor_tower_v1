@@ -7,16 +7,8 @@ import { IUserDoc } from '../../contracts/_user.interfaces';
 import { jwtError } from '../utils/_jwt';
 import { getAccessTokenFromHeaders } from '../utils/_headers';
 
-const IsAuth = (...requiredRights: string[]) =>
+export const IsAuth = (...requiredRights: string[]) =>
   async (req: Request, res: Response, next: NextFunction) => {
-    const { accessToken } = getAccessTokenFromHeaders(req.headers);
-
-    if (!accessToken) {
-      return res.status(StatusCodes.UNAUTHORIZED).json({ 
-        message: ReasonPhrases.UNAUTHORIZED,
-        status: StatusCodes.UNAUTHORIZED
-      });
-    }
 
     try {
       await new Promise<void>((resolve, reject) => {
@@ -56,4 +48,15 @@ const verifyCallback =
     resolve();
 };
 
-export default IsAuth;
+export const GateRoute = async (req: Request, res: Response, next: NextFunction) => {
+  const { accessToken } = getAccessTokenFromHeaders(req.headers);
+
+    if (!accessToken) {
+      return res.status(StatusCodes.UNAUTHORIZED).json({ 
+        message: ReasonPhrases.UNAUTHORIZED,
+        status: StatusCodes.UNAUTHORIZED
+      });
+    }
+
+    return next();
+};

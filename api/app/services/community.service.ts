@@ -3,6 +3,7 @@ import { ICommunity, NewCreatedCommunity } from '../../contracts/_community.inte
 
 export class CommunityService {
     async createCommunity(data: NewCreatedCommunity): Promise<ICommunity> {
+        console.log('Data to be saved:', data); // Log the data to be saved
         const community = new Community(data);
         return community.save();
     }

@@ -1,12 +1,12 @@
 import Joi from 'joi';
 import { postSize } from './validate/_custom.validation';
-import { NewCreatedCommunity } from '../../contracts/_community.interfaces';
+import { NewCreatedCommPost } from '../../contracts/_community.interfaces';
 
 
-const communityBody: Record<keyof NewCreatedCommunity, any> = {
-  tier: Joi.string().required(),
-  post_content: Joi.string().required().custom(postSize),
-  name: Joi.string().required(),
+const communityBody: Record<keyof NewCreatedCommPost, any> = {
+    name: Joi.string().required(),
+    tier: Joi.string().required(),
+    post_content: Joi.string().required().custom(postSize)
 };
 
 export const newCommPost = {

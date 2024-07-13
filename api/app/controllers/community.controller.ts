@@ -7,7 +7,9 @@ import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 const communityService = new CommunityService();
 
 export const createCommunity = catchAsync(async (req: Request, res: Response) => {
+    
     try {
+        console.log('Request Body:', req.body);
         const community = await communityService.createCommunity(req.body);
         res.status(StatusCodes.CREATED).json(community);
     } catch (error) {

@@ -2,7 +2,7 @@ import { Schema, model, ObjectId } from 'mongoose'
 import validator from 'validator';
 import {UserRole} from "../../contracts/_role";
 import toJSON from '../config/_toJson';
-import { compareSync, hash } from 'bcrypt'
+import { compare, hash } from 'bcrypt'
 import { IUserDoc, IUserModel } from "../../contracts/_user.interfaces";
 
 const UserSchema = new Schema<IUserDoc, IUserModel>({
@@ -60,9 +60,10 @@ UserSchema.static('isEmailTaken', async function (email: string, excludeUserId: 
     return !!user;
   });
 
-UserSchema.methods.comparePassword = function (password: string) {
-    return compareSync(password, this.password)
-}
+UserSchema.method('isPasswordMatch', async function (password: string): Promise<boolean> {
+    const user = this as IUserDoc;
+    return compare(password, user.password);
+});
 
 UserSchema.pre('save', async function (next) {
     const user = this;

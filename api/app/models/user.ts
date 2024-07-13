@@ -28,7 +28,7 @@ const UserSchema = new Schema<IUserDoc, IUserModel>({
     },
     phone: {
         type: Number,
-        required: true
+        required: false
     },
     password: {
         type: String,

@@ -25,7 +25,7 @@ export interface IUserModel extends Model<IUserDoc> {
 
 export type UpdateUserBody = Partial<IUser>;
 
-export type NewRegisteredUser = Omit<IUser, 'bio' | 'isEmailVerified' | 'dob' | 'tier'>;
+export type NewRegisteredUser = Omit<IUser, 'bio' | 'isEmailVerified' | 'dob' | 'tier' | 'phone'>;
 
 export type NewCreatedUser = Omit<IUser, 'isEmailVerified'>;
 

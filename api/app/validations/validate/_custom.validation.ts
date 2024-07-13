@@ -16,3 +16,9 @@ export const password = (value: string, helpers: CustomHelpers) => {
   }
   return value;
 };
+
+export const postSize = (value: string, helpers: CustomHelpers) => {
+  if (value.length > 800) {
+    return helpers.message({ custom: 'content must not be above 800 characters' });
+  }
+}

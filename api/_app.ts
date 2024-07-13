@@ -8,6 +8,7 @@ import 'dotenv/config'
 import fs from "fs";
 import path from "path";
 import router from "./routes/_auth.routes";
+import communityRoutes from './routes/community.routes';
 import config from "./app/config/config";
 import morgan from "./logger/_morgan";
 import jwtStrategy from "./app/middleware/passport";
@@ -59,6 +60,7 @@ if (config.env === 'production') {
   app.use('/v1/auth', authLimiter);
 }
 app.use('/v1', router);
+app.use('/v1/comms', communityRoutes);
 
 const options = {
   definition: {

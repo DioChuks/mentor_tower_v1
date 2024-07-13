@@ -1,21 +1,21 @@
 // src/controllers/community.controller.ts
-import { Request, Response } from 'express';
+import { Request, Response, NextFunction } from 'express';
 import catchAsync from '../utils/_catchAsync';
 import { CommunityService } from '../services/community.service';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
 
 const communityService = new CommunityService();
 
-export const createCommunity = catchAsync(async (req: Request, res: Response) => {
-    
+export const createCommunityPost = async (req: Request, res: Response, next: NextFunction) => {
+    console.log('Request Body:', req.body); // Log the request body
     try {
-        console.log('Request Body:', req.body);
-        const community = await communityService.createCommunity(req.body);
-        res.status(StatusCodes.CREATED).json(community);
+      const newCommunity = await communityService.createCommunity(req.body);
+      console.log('Created Community:', newCommunity); // Log the created community
+      res.status(StatusCodes.CREATED).json(newCommunity);
     } catch (error) {
-        res.status(StatusCodes.BAD_REQUEST).json(ReasonPhrases.BAD_REQUEST);
+      next(error);
     }
-});
+  };
 
 export const getCommunities = catchAsync(async (_req: Request, res: Response) => {
     try {

@@ -10,7 +10,7 @@ const CommunitySchema = new Schema<ICommunity>({
         type: String,
         required: false,
     },
-    post_content: {
+    content: {
         type: String,
         required: true
     },

@@ -1,8 +1,8 @@
 import Community from '../models/community';
-import { ICommunity, NewCreatedCommunity } from '../../contracts/_community.interfaces';
+import { ICommunity, NewCreatedCommPost } from '../../contracts/_community.interfaces';
 
 export class CommunityService {
-    async createCommunity(data: NewCreatedCommunity): Promise<ICommunity> {
+    async createCommunity(data: NewCreatedCommPost): Promise<ICommunity> {
         console.log('Data to be saved:', data); // Log the data to be saved
         const community = new Community(data);
         return community.save();

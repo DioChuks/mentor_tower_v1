@@ -14,6 +14,13 @@ export const newCommPost = {
 
 export const updateCommPost = {
   body: Joi.object().keys({
-    post_content: Joi.string().required()
+    content: Joi.string().required()
   }),
+};
+
+export const commentSchema = {
+  body: Joi.object().keys({
+      user: Joi.string().required(),
+      comment: Joi.string().required()
+  })
 };

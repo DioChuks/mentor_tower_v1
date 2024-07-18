@@ -23,4 +23,20 @@ export class CommunityService {
     async deleteCommunity(id: string): Promise<ICommunity | null> {
         return Community.findByIdAndDelete(id).exec();
     }
+
+    async likeCommPost(id: string): Promise<ICommunity | null> {
+        return Community.findByIdAndUpdate(
+            id,
+            { $inc: { likes: 1 } },
+            { new: true }
+        ).exec();
+    }
+
+    async commentCommPost(id: string, user: string, comment: string): Promise<ICommunity | null> {
+        return Community.findByIdAndUpdate(
+            id,
+            { $push: { comments: { user, comment } } },
+            { new: true }
+        ).exec();
+    }
 }

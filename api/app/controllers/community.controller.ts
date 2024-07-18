@@ -61,3 +61,35 @@ export const deleteCommunity = catchAsync(async (req: Request, res: Response) =>
         res.status(StatusCodes.BAD_REQUEST).json(ReasonPhrases.BAD_REQUEST);
     }
 });
+
+export const likeCommunityPost = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id } = req.params;
+        const community = await communityService.likeCommPost(id);
+
+        if (!community) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: 'Community post not found' });
+        }
+
+        res.status(StatusCodes.OK).json(community);
+    } catch (error) {
+        next(error);
+    }
+};
+
+export const commentOnCommunityPost = async (req: Request, res: Response, next: NextFunction) => {
+    try {
+        const { id } = req.params;
+        const { user, comment } = req.body;
+
+        const community = await communityService.commentCommPost(id, user, comment);
+
+        if (!community) {
+            return res.status(StatusCodes.NOT_FOUND).json({ message: 'Community post not found' });
+        }
+
+        res.status(StatusCodes.OK).json(community);
+    } catch (error) {
+        next(error);
+    }
+};

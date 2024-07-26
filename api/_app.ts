@@ -5,8 +5,6 @@ const swaggerUi = require("swagger-ui-express");
 const cors = require("cors");
 import passport from "passport";
 import 'dotenv/config'
-import fs from "fs";
-import path from "path";
 import router from "./routes/_auth.routes";
 import commRouter from './routes/community.routes';
 import config from "./app/config/config";
@@ -85,11 +83,6 @@ const swaggerDefinition = {
         },
       ],
 };
-
-// const css = fs.readFileSync(
-//   path.resolve(__dirname, '../node_modules/swagger-ui-dist/swagger-ui.css'),
-//   'utf8'
-// );
 
 const specs = swaggerJsdoc({
   swaggerDefinition,

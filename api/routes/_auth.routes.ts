@@ -20,62 +20,69 @@ export default router;
 
 /**
  * @swagger
- * tags:
- *   name: Auth
- *   description: Authentication
+ * components:
+ *   schemas:
+ *     User:
+ *       type: object
+ *       required:
+ *         - name
+ *         - email
+ *         - password
+ *         - role
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: The auto-generated id of the book
+ *         name:
+ *           type: string
+ *           description: The name of the user
+ *         email:
+ *           type: string
+ *           description: The user email
+ *         password:
+ *           type: string
+ *           minLength: 6
+ *           description: At least one number and one letter
+ *         createdAt:
+ *           type: string
+ *           format: date
+ *           description: The date the user was added
+ *       example:
+ *         id: d5fE_asz
+ *         name: Alexander K. Dewdney
+ *         email: fake@example.com
+ *         password: password1
+ *         role: MENTEE
+ *         createdAt: 2020-03-10T04:05:06.157Z
  */
 
 /**
  * @swagger
- * /auth/register:
+ * tags:
+ *   name: Auth
+ *   description: The authentication API
+ * /v1/register:
  *   post:
- *     summary: Register as user
+ *     summary: Create a new user
  *     tags: [Auth]
  *     requestBody:
  *       required: true
  *       content:
  *         application/json:
  *           schema:
- *             type: object
- *             required:
- *               - name
- *               - email
- *               - password
- *             properties:
- *               name:
- *                 type: string
- *               email:
- *                 type: string
- *                 format: email
- *                 description: must be unique
- *               password:
- *                 type: string
- *                 format: password
- *                 minLength: 8
- *                 description: At least one number and one letter
- *             example:
- *               name: fake name
- *               email: fake@example.com
- *               password: password1
+ *             $ref: '#/components/schemas/User'
  *     responses:
- *       "201":
- *         description: Created
+ *       201:
+ *         description: Created.
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 user:
- *                   $ref: '#/components/schemas/User'
- *                 tokens:
- *                   $ref: '#/components/schemas/AuthTokens'
+ *               $ref: '#/components/schemas/User'
  *       "400":
- *         $ref: '#/components/responses/DuplicateEmail'
- */
-
-/**
- * @swagger
- * /auth/login:
+ *         description: Bad Request.
+ *       500:
+ *         description: Some server error
+ * /v1/login:
  *   post:
  *     summary: Login
  *     tags: [Auth]
@@ -119,11 +126,7 @@ export default router;
  *             example:
  *               code: 401
  *               message: Invalid email or password
- */
-
-/**
- * @swagger
- * /auth/logout:
+ * /v1/logout:
  *   post:
  *     summary: Logout
  *     tags: [Auth]
@@ -145,11 +148,7 @@ export default router;
  *         description: No content
  *       "404":
  *         $ref: '#/components/responses/NotFound'
- */
-
-/**
- * @swagger
- * /auth/refresh-tokens:
+ * /v1/refresh-tokens:
  *   post:
  *     summary: Refresh auth tokens
  *     tags: [Auth]
@@ -175,11 +174,7 @@ export default router;
  *               $ref: '#/components/schemas/UserWithTokens'
  *       "401":
  *         $ref: '#/components/responses/Unauthorized'
- */
-
-/**
- * @swagger
- * /auth/forgot-password:
+ * /v1/forgot-password:
  *   post:
  *     summary: Forgot password
  *     description: An email will be sent to reset password.
@@ -203,11 +198,7 @@ export default router;
  *         description: No content
  *       "404":
  *         $ref: '#/components/responses/NotFound'
- */
-
-/**
- * @swagger
- * /auth/reset-password:
+ * /v1/reset-password:
  *   post:
  *     summary: Reset password
  *     tags: [Auth]
@@ -246,11 +237,7 @@ export default router;
  *             example:
  *               code: 401
  *               message: Password reset failed
- */
-
-/**
- * @swagger
- * /auth/send-verification-email:
+ * /v1/send-verification-email:
  *   post:
  *     summary: Send verification email
  *     description: An email will be sent to verify email.
@@ -262,11 +249,7 @@ export default router;
  *         description: No content
  *       "401":
  *         $ref: '#/components/responses/Unauthorized'
- */
-
-/**
- * @swagger
- * /auth/verify-email:
+ * /v1/verify-email:
  *   post:
  *     summary: verify email
  *     tags: [Auth]

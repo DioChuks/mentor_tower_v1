@@ -1,7 +1,7 @@
 import express from "express";
 import helmet from "helmet";
-const swaggerjsdoc = require("swagger-jsdoc");
-const swaggerui = require("swagger-ui-express");
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
 const cors = require("cors");
 import passport from "passport";
 import 'dotenv/config'
@@ -57,42 +57,48 @@ app.use(express.urlencoded({extended: true}))
 app.use(passport.initialize());
 passport.use('jwt', jwtStrategy);
 if (config.env === 'production') {
-  app.use('/v1/auth', authLimiter);
+  app.use('/v1', authLimiter);
 }
 app.use('/v1', router);
 app.use('/v1/comms', commRouter);
 
-const options = {
-  definition: {
-    openapi: "3.0.0",
+const swaggerDefinition = {
+    openapi: "3.1.0",
     info: {
       title: "Mentor Tower APIs",
       version: "0.1.0",
       description: "API documentation for mentor tower app",
-      servers: [
+      license: {
+        name: "MIT",
+        url: "https://spdx.org/licenses/MIT.html",
+      },
+      contact: {
+        name: "Invictus Backend",
+        url: "https://github.com/DioChuks",
+        email: "diochuks65@gmail.com",
+      },
+    },
+    servers: [
         {
           url: url,
+          description: 'Development Server',
         },
       ],
-    },
-  },
-  apis: [
-    `${__dirname}/routes/*.routes.ts`
-  ],
 };
 
-const css = fs.readFileSync(
-  path.resolve(__dirname, '../node_modules/swagger-ui-dist/swagger-ui.css'),
-  'utf8'
-);
+// const css = fs.readFileSync(
+//   path.resolve(__dirname, '../node_modules/swagger-ui-dist/swagger-ui.css'),
+//   'utf8'
+// );
 
-const specs = swaggerjsdoc(options);
+const specs = swaggerJsdoc({
+  swaggerDefinition,
+  apis: ['packages/components.yaml', 'dist/routes/*.js'],
+});
 app.use(
   "/docs",
-  swaggerui.serve,
-  swaggerui.setup(specs, {
-    customCss: css
-  })
+  swaggerUi.serve,
+  swaggerUi.setup(specs, { explorer: true })
 );
 
 // send back a 404 error for any unknown api request

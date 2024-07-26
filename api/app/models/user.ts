@@ -50,6 +50,10 @@ const UserSchema = new Schema<IUserDoc, IUserModel>({
     tier: {
         type: String,
         required: false
+    },
+    areaOfInterest: {
+        type: String,
+        required: false
     }
 }, { timestamps: true });
 

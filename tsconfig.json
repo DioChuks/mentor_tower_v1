@@ -5,10 +5,12 @@
     "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
     "moduleDetection": "force",
   },
-  "include": ["api/**/*"]
+  "include": ["api/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
